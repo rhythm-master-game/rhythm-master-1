@@ -1,63 +1,136 @@
-# Rhythm Master – Player Guide
+# Sublime Sounds – Rhythm Master  
+**User Manual (Beta)**
 
-Welcome to **Rhythm Master**, a skill-based rhythm game on WAX.
+Welcome to **Rhythm Master**, a rhythm-based game powered by WAX NFTs.
 
----
-
-## 🎵 How to Play
-- Login with WAX Cloud Wallet or Anchor Wallet (Only compatible in external browsers Chrome, Safari, Edge, Firefox - not TG browser)
-- Pay **100 SSN** to start (admins excluded), season tracks unlocked for Season Pass Holders, no SSN payment required
-- Hit falling notes as they cross the glowing hit line
-- Use keyboard (A S D F G), mouse or touch on mobile
+This guide explains how to play, upgrade NFTs, and troubleshoot common issues.
 
 ---
 
-## 🎯 Judgements
-- **SUBLIME!** – near-perfect timing
-- **GREAT!** – strong timing
-- **OK** – acceptable
-- **MISS** – too early or too late
+## 1. Getting Started
 
-Only **GREAT** and **SUBLIME** hits build combos.
+### Supported Wallets
+- **WAX Cloud Wallet**
+- **Anchor Wallet**
 
----
+Click **Connect WAX** or **Anchor** to log in.
 
-## 🔥 Combos
-- x5 → NICE COMBO!
-- x10 → GREAT COMBO!
-- x20 → AMAZING COMBO!
-- x30 → SUBLIME COMBO!
-- x50 → RHYTHM MASTER!
-
-Combos increase score multipliers and trigger visual effects.
+> ⚠️ Mobile users may be redirected to an external wallet app.
 
 ---
 
-## 🎁 NFT Drops
-- Very rare **green NFT note**
-- Must be hit with **SUBLIME**
-- Instantly sends a Mythic NFT
-- Drops are capped globally per day
+## 2. NFT Tracks
+
+Each NFT represents:
+- A playable music track
+- Visual background (image / video)
+- Gameplay bonuses
+
+### NFT Levels
+| Level | Description |
+|------|------------|
+| 1 | Base NFT |
+| 2 | +10% Score & SSN |
+| 3 | +20% Score or SSN |
+| 4 | +35% Score or SSN (Max) |
+
+You can select NFTs from the dropdown at the top of the game.
 
 ---
 
-## 🔁 Restarts
-- You get **3 free restarts per track**
-- Free restarts:
-  - Do NOT submit scores
-  - Do NOT require SSN payment
-- After 3 restarts, payment is required again
+## 3. Playing the Game
+
+### Controls
+- **Keyboard:** A S D F G
+- **Touch:** Tap lanes directly
+
+### Gameplay
+- Hit notes in time with the music
+- Build combos for multipliers
+- Achieve *Sublime* hits for maximum score
+
+### Multipliers
+- **x2** – Yellow notes
+- **x3** – Red notes
+- **NFT Notes** – Chance to win NFTs
 
 ---
 
-## 🏆 Leaderboards
-- Only your **best score per track per season** is kept
-- Lower scores never overwrite higher ones
-- Leaderboards reset each season
+## 4. SSN Tokens
+
+- Playing a track costs **100 SSN**
+- SSN can be earned during gameplay
+- SSN is automatically settled at the end of a run
 
 ---
 
-## 📱 Mobile Tips
-- Rotate your device to landscape
-- Tap lanes directly
-- Fullscreen activates automatically for best performance
+## 5. NFT Upgrades
+
+### Level 1 → Level 2
+- Requires **burning** the NFT on-chain
+- A new upgraded NFT is minted automatically
+
+### Level 2 → 4
+- Requires SSN and score milestones
+- No burn required
+
+### Upgrade Process
+1. Select an NFT
+2. Click **Upgrade NFT**
+3. Confirm wallet transaction(s)
+4. Wait for success animation
+5. Re-scan wallet if needed
+
+> 🔒 Only one upgrade can happen per NFT at a time.
+
+---
+
+## 6. Wallet Re-scan
+
+If NFTs don’t appear or update:
+- Click **Re-scan Wallet**
+- This refreshes NFT data without reloading the page
+
+---
+
+## 7. Leaderboards & Seasons
+
+- Leaderboards are per-track and per-season
+- Scores reset when a new season starts
+- Admins can clear leaderboards manually
+
+---
+
+## 8. Common Issues & Fixes
+
+### “Wallet not ready”
+- Make sure you completed login
+- Try refreshing and reconnecting your wallet
+
+### CPU / NET Errors
+- Wait a few minutes and retry
+- Heavy activity can temporarily rate-limit accounts
+
+### NFT Media Not Loading
+- IPFS gateways may be slow or blocked
+- Media will retry automatically using fallbacks
+
+### Upgrade Failed
+- Ensure you have enough SSN
+- Ensure the NFT is not already upgrading
+- Retry after a short delay if CPU limits were hit
+
+---
+
+## 9. Beta Disclaimer
+
+This project is currently in **beta testing**:
+- Features may change
+- Bugs may occur
+- Assets are real NFTs – upgrade actions are irreversible
+
+Please report issues or feedback to the development team.
+
+---
+
+🎶 **Enjoy the rhythm. Master the beat. Upgrade your sound.**
