@@ -1,5 +1,76 @@
 # Changelog
 
+All notable changes to **Sublime Sounds – Rhythm Master** will be documented in this file.
+
+The format is based on **Keep a Changelog**, and this project follows semantic-style versioning during beta.
+
+---
+
+## [Unreleased]
+
+### Added
+- NFT upgrade system (Level 1 → Level 4)
+- On-chain NFT burn for Level 1 upgrades
+- Backend upgrade locking to prevent duplicate or concurrent upgrades
+- Visual NFT upgrade overlay and success animation
+- NFT level badge displayed in UI
+- NFT-specific score and SSN boost modifiers
+- Retry logic for CPU-limit blockchain transactions
+- Wallet re-scan button to refresh NFT state without reload
+- Anchor wallet support alongside WAX Cloud Wallet
+
+### Changed
+- Refactored wallet handling to support both Anchor and WAX safely
+- Unified transaction handling to prevent undefined RPC errors
+- Improved NFT media loading with IPFS gateway fallbacks
+- Improved game restart and session state handling
+- Improved error messaging for failed upgrades and burns
+
+### Fixed
+- NFT selection not updating background / audio / video
+- UI not reflecting selected NFT data
+- False “Upgrade already in progress” errors
+- Database schema mismatches for upgrade locks
+- NFT lock rows not being cleared correctly
+- Frontend crashes due to undefined wallet or RPC objects
+- Burn transactions failing due to missing `asset_owner`
+- Upgrade flow blocking gameplay incorrectly
+- Multiple race conditions between burn, mint, and UI refresh
+
+---
+
+## [0.9.0-beta] – 2026-01-03
+
+### Added
+- NFT-based track selection
+- Game score submission and leaderboard per track
+- SSN token payments to start tracks
+- NFT drops during gameplay
+- Confetti and combo celebration effects
+- Anchor wallet login
+- Admin tools (clear leaderboard, season reset)
+
+### Known Issues
+- IPFS media may fail on some gateways (fallbacks applied)
+- CPU-heavy accounts may temporarily hit WAX rate limits
+- Mobile browser wallets may require external app handling
+
+---
+
+## [0.8.0-beta] – Initial Beta
+
+### Added
+- Core rhythm gameplay
+- WAX Cloud Wallet login
+- Score, combo, multiplier mechanics
+- NFT-based audio tracks
+- Basic leaderboard
+
+---
+
+
+# Changelog
+
 ## 📅 Date
 **2025-12-21**
 
