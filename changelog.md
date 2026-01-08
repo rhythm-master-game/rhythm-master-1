@@ -1,3 +1,134 @@
+# Changelog (08/01/26)
+
+All notable changes to this project will be documented in this file.
+
+This project follows a pragmatic, production-focused development approach rather than strict semantic versioning.
+
+---
+
+## [Unreleased]
+### Planned
+- Resource provider / CPU sponsorship for NFT burn & upgrade transactions
+- Upgrade lock auto-release on failed on-chain burn
+- Admin override tools for stuck upgrades
+- Optional CPU preflight checks before upgrade
+- Upgrade retry / resume support
+- Upgrade activity audit log (backend)
+
+---
+
+## [0.9.0] – 2026-01-07
+### 🎮 Gameplay & Core Engine
+- Stabilised full game lifecycle (start → play → end → restart)
+- Fixed note spawning and clearing logic on track end
+- Notes now clear immediately when audio or video finishes
+- Prevented duplicate animation frames and race conditions
+- Improved restart reliability across multiple consecutive runs
+- Added failsafe end-game protection for stalled media
+
+### 🎥 Media Handling
+- Rewritten `loadVideoWithFallback` with safe gateway rotation
+- Added preload token invalidation to prevent stale media loads
+- Fixed video/audio desync on restart
+- Added robust fallback from video → audio on preload timeout
+- Prevented media reuse bugs when switching tracks
+- Improved autoplay handling for browser restrictions
+
+### 🧠 State Management
+- Hardened global game state flags (`playing`, `started`, `ended`)
+- Added hard reset path for restart flow
+- Prevented cross-track state bleed
+- Improved tab visibility pause/resume handling
+- Added guardrails to prevent double start or double end
+
+### 🏆 Leaderboards
+- Fixed leaderboard persistence bug when switching templates
+- Corrected leaderboard reload logic per track
+- Backend now enforces best-score-per-user-per-track
+- Added explicit season and template scoping
+- Improved leaderboard refresh timing post-submit
+
+### 💰 SSN Economy
+- Finalised SSN settlement flow via backend (`settle-ssn`)
+- Ensured SSN boosts are applied authoritatively server-side
+- Prevented duplicate SSN settlement on replay
+- Improved error handling and non-blocking settlement logic
+
+### 🖼️ UI & UX
+- Improved upgrade overlay animations and feedback
+- Added clear upgrade progress and completion messaging
+- Fixed UI freezes caused by blocking async calls
+- Improved mobile fullscreen handling and orientation unlock
+- Disabled start button strictly based on payment state
+
+---
+
+## [0.8.0] – 2026-01-05
+### 🔐 Authentication & Wallet
+- Finalised Supabase JWT auth pattern for Edge Functions
+- Fixed invalid session parsing and payload decoding
+- Hardened auth checks across all backend endpoints
+- Improved Anchor login resilience (cancel / retry safe)
+- Standardised wallet actor resolution
+
+### 🔥 NFT Upgrade System (Major)
+- Implemented L1 → L2 upgrade flow with mandatory NFT burn
+- Added backend upgrade locking (`nft_upgrade_locks`)
+- Prevented concurrent upgrades on the same asset
+- Ensured burn precheck happens before on-chain transaction
+- Added retry-safe upgrade lock handling
+- Integrated upgrade paths for higher-level NFTs
+- Added frontend burn → upgrade sequencing
+
+### ⛓️ On-Chain Integration
+- Implemented `atomicassets::burnasset` via Anchor
+- Correctly captured transaction IDs for upgrade validation
+- Added explicit error handling for chain failures
+- Properly surfaced CPU exhaustion errors to the UI
+- Confirmed correct behaviour under CPU limits
+
+> ⚠️ Note: NFT burns require WAX CPU.  
+> Transactions may fail without sufficient CPU staking.  
+> This is expected and handled gracefully.
+
+---
+
+## [0.7.0] – 2025-12-26
+### 🧱 Backend Architecture
+- Migrated core logic to Supabase Edge Functions
+- Implemented `/scan-wallet-nfts` with database caching
+- Added wallet ownership verification
+- Introduced Firestore-compatible stubs for future expansion
+- Added consistent CORS handling across all endpoints
+
+### 🎵 NFT Track System
+- Full dynamic track loading from AtomicAssets metadata
+- Support for audio, video, and image-based tracks
+- Dynamic background visuals per NFT
+- Template-based track selection
+- Added test-wallet free-play support
+
+---
+
+## [0.6.0] – 2025-12-12
+### 🧪 Early Builds
+- Initial rhythm engine (5-lane)
+- Combo and accuracy tracking
+- Basic scoring model
+- Prototype leaderboards
+- Early SSN token gating
+- Initial WAX Cloud Wallet support
+
+---
+
+## Notes
+- CPU exhaustion errors (`tx_cpu_usage_exceeded`) are not bugs.
+- NFT burning on WAX is inherently CPU-expensive.
+- Future releases will introduce sponsored CPU or fuel providers.
+
+---
+
+
 # Changelog
 
 All notable changes to **Sublime Sounds – Rhythm Master** will be documented in this file.
