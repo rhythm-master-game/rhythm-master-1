@@ -1,3 +1,70 @@
+# Changelog (10/10/26)
+
+All notable changes to the Rhythm Master NFT Upgrade & SSN system will be documented in this file.
+
+## [Unreleased]
+- Preparation for new NFT drops
+- Final verification of SSN settlement edge cases
+
+---
+
+## [2026-01-09] – NFT Upgrade System Stabilisation
+
+### ✅ Fixed
+- **Critical bug:** `txid is not defined`
+  - Root cause was a leftover debug `console.log` referencing `txid` instead of `ssn_txid`
+  - This caused false error popups even when upgrades succeeded
+- **Upgrade skipping levels**
+  - Enforced strict upgrade progression:
+    - Level 1 → Level 2
+    - Level 2 → Level 3
+    - Level 3 → Level 4
+  - Backend now validates `expectedToLevel = currentLevel + 1`
+- **Invalid upgrade paths**
+  - Backend now rejects any path where `to_level` does not match the expected next level
+- **Level 1 auto-upgrade regression**
+  - Restored correct handling of `upgrade_path = "auto"` for Level 1
+  - Locked Level 1 upgrades to template-based paths only
+
+### 🧠 Improved
+- Upgrade path resolution is now **deterministic**
+  - Uses `(from_level → to_level)` instead of trusting client input
+- SSN cost validation hardened
+  - Backend now throws if `ssn_cost` is missing or invalid
+- SSN upgrade payments made idempotent
+  - Duplicate `ssn_txid` reuse is blocked
+- Wallet NFT level normalization fixed (no more `|| 1` bugs)
+- Client upgrade UI now mirrors backend rules exactly
+
+### 🔒 Security
+- Upgrade paths can no longer:
+  - Skip levels
+  - Jump multiple levels
+  - Be forged by client manipulation
+- SSN payment records are validated and locked before upgrades apply
+
+### 🧪 Verified Working
+- Level 1 → Level 2 (burn + mint)
+- Level 2 → Level 3 (atomic update)
+- Level 3 → Level 4 (atomic update)
+- SSN payments recorded in `ssn_upgrade_payments`
+- Upgrade UI state recovery
+- Anchor + WAX wallet compatibility
+
+---
+
+## [2026-01-07] – Leaderboard & Wallet Scan Fixes
+
+### Fixed
+- Leaderboard not clearing when switching NFTs
+- Wallet scans timing out on large inventories
+- Session token loss after wallet popups
+
+### Improved
+- Wallet scan UX
+- Leaderboard reload logic per template + season
+
+
 # Changelog (08/01/26)
 
 All notable changes to this project will be documented in this file.
