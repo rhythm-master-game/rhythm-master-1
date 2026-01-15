@@ -1,3 +1,100 @@
+# Changelog (15/01/2026)
+
+All notable changes to **Sublime Sounds – Rhythm Master** will be documented in this file.
+
+---
+
+## [Unreleased] – 2026-01-15
+### ✅ Stable / Working (Core Gameplay + Wallet + Media + Leaderboards)
+
+#### 🔐 Wallet Login + Session Auth
+- Anchor login working correctly
+- `auth-session` returns a valid JWT and is stored in `window.sessionToken`
+- Auto wallet scan runs after login
+- NFT list loads from Supabase DB successfully (`fetch-wallet-nfts`)
+- Logout works and resets game state cleanly
+
+#### 🎮 Gameplay Flow
+- Game starts reliably after **paying 100 SSN** and clicking Start
+- Paid play gating is enforced correctly (no free play unless admin/dev logic allows)
+- Restart flow works correctly after game end
+- Restart attempts are tracked + limited (non-admin users)
+- Restart no longer causes broken states / stuck runs
+
+#### 🎥 Video / 🔊 Audio Media System
+- Track media now preloads safely without autoplay on selection
+- Video NFTs no longer auto-play immediately when selected (only plays after Start)
+- Video replay / second play is stable (hard reset + safe reload)
+- Audio playback is stable again (including autoplay mute/unmute handling)
+- Video end triggers `forceEndGame("video-ended")` correctly
+- Audio end triggers `forceEndGame("audio-ended")` correctly
+- Media loading UI works (`showMediaLoading()` / `hideMediaLoading()`)
+
+#### 🧹 Hard Stop / Cleanup Improvements
+- `hardStopGame(reason)` properly stops:
+  - RAF loop
+  - failsafe timer
+  - media playback (audio + video)
+  - notes + visual effects
+- Special handling added:
+  - Restart uses `ended=false` so next run starts cleanly
+  - Logout performs full media wipe (removes `src`, calls `.load()`, hides video, clears background)
+
+#### 🏆 Leaderboards
+- Score submission is working again via Supabase RPC:
+  - `submit_leaderboard_score`
+- Payload includes correct fields:
+  - season
+  - template_id
+  - wallet (from JWT)
+  - score
+  - max_combo
+  - track_name (nullable)
+- Leaderboard loads per-template correctly (no longer shows previous template results)
+
+#### 🔒 UI Locking During Runs
+- Upgrade UI (dropdown + upgrade button) now locks during gameplay
+- Upgrade UI unlocks after run end / reset
+
+#### 🧾 SSN Settlement (Front-End Flow)
+- Settlement call is correctly gated:
+  - not called on restart run
+  - requires `sessionToken`, `user`, `currentTrack`, and `ssnEarnedThisRun > 0`
+- Settlement errors are caught and logged without breaking gameplay
+- Current error is CPU throttling / failure-limit on chain (external WAX CPU condition)
+
+#### 🧼 Login Button UX
+- WAX + Anchor login buttons are hidden after login
+- Buttons return on logout
+
+---
+
+### ⚠️ Known Issues / Not Yet Working
+
+#### 🧬 NFT Upgrades (Main Remaining Issue)
+- Upgrade system is still incomplete / unstable
+- Upgrade dropdown and upgrade flow still needs final fix + validation
+- Priority is restoring the exact previous upgrade behaviour:
+  - Level-based upgrades (L1→L2, L2→L3, L3→L4)
+  - Correct SSN costs per level
+  - No skipped levels
+  - Stable frontend ↔ backend interaction
+  - Uses `upgrade-nft` Supabase Edge Function as the upgrade authority
+
+---
+
+## Notes
+- Current build in use: `rythummasterold.html`
+- Wallet user tested: `a1hd.wam`
+- Supabase Edge Functions confirmed active:
+  - `auth-session`
+  - `fetch-wallet-nfts`
+  - `submit-score`
+  - `settle-ssn` (currently failing due to CPU usage limits on WAX push_transaction)
+
+---
+
+
 # Changelog (10/10/26)
 
 All notable changes to the Rhythm Master NFT Upgrade & SSN system will be documented in this file.
