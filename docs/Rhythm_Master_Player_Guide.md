@@ -1,135 +1,161 @@
 # Sublime Sounds – Rhythm Master  
-**User Manual (Beta)**
+## Player Guide / User Manual (Beta)
 
-Welcome to **Rhythm Master**, a rhythm-based game powered by WAX NFTs.
+Welcome to **Sublime Sounds – Rhythm Master**, a rhythm-based arcade game powered by **WAX NFTs** and **SSN tokens**.
 
-This guide explains how to play, upgrade NFTs, and troubleshoot common issues.
+This guide explains how to connect your wallet, choose tracks, play runs, earn SSN, and troubleshoot common issues.
 
 ---
 
-## 1. Getting Started
+## 1) Getting Started
 
 ### Supported Wallets
+You can log in using:
+
 - **WAX Cloud Wallet**
 - **Anchor Wallet**
 
-Click **Connect WAX** or **Anchor** to log in.
+Click **Connect WAX** or **Connect Anchor** to log in.
 
-> ⚠️ Mobile users may be redirected to an external wallet app.
+⚠️ **Mobile users:** you may be redirected to an external wallet app to approve login or transactions.
 
 ---
 
-## 2. NFT Tracks
+## 2) NFT Tracks
 
-Each NFT represents:
-- A playable music track
-- Visual background (image / video)
-- Gameplay bonuses
+Each supported NFT represents a **playable track** inside Rhythm Master.
 
-### NFT Levels
+NFTs may include:
+- 🎵 **Audio track**
+- 🎥 **Video background**
+- 🖼️ **Image background**
+- ⭐ Gameplay bonuses (based on NFT level)
+
+You can select your NFT track from the dropdown at the top of the game.
+
+---
+
+## 3) NFT Levels (Boost System)
+
+NFTs can have different levels which provide bonuses.
+
 | Level | Description |
-|------|------------|
+|------:|------------|
 | 1 | Base NFT |
-| 2 | +10% Score & SSN |
-| 3 | +20% Score or SSN |
-| 4 | +35% Score or SSN (Max) |
+| 2 | Boosted gameplay bonuses |
+| 3 | Higher boosted bonuses |
+| 4 | Maximum boosted bonuses (Max Level) |
 
-You can select NFTs from the dropdown at the top of the game.
+> Exact boost values may vary by NFT collection / season rules.
 
 ---
 
-## 3. Playing the Game
+## 4) Playing the Game
 
 ### Controls
-- **Keyboard:** A S D F G
-- **Touch:** Tap lanes directly
+- **Keyboard:** `A S D F G`
+- **Touch / Mobile:** Tap lanes directly
 
 ### Gameplay
-- Hit notes in time with the music
-- Build combos for multipliers
-- Achieve *Sublime* hits for maximum score
+- Hit falling notes in time with the beat
+- Build combos to increase your score
+- Aim for high accuracy to maximize results
 
-### Multipliers
-- **x2** – Yellow notes
-- **x3** – Red notes
-- **NFT Notes** – Chance to win NFTs
+### Special Notes / Multipliers
+- **x2 Notes** (Yellow) → score multiplier bonus  
+- **x3 Notes** (Red) → bigger multiplier bonus  
+- **NFT Notes** (Green) → chance to trigger NFT rewards (event-based)
 
 ---
 
-## 4. SSN Tokens
+## 5) SSN Tokens
 
+### Cost to Play
 - Playing a track costs **100 SSN**
-- SSN can be earned during gameplay
-- SSN is automatically settled at the end of a run
+
+### Earning SSN
+- SSN can be earned during gameplay depending on performance and bonuses.
+
+### Settlement
+- SSN rewards are **automatically settled** at the end of a run (when applicable).
+
+⚠️ If the WAX network is busy, settlement may fail temporarily due to CPU/NET limits — you can retry later.
 
 ---
 
-## 5. NFT Upgrades
+## 6) Restarting a Track (Replay)
 
-### Level 1 → Level 2
-- Requires **burning** the NFT on-chain
-- A new upgraded NFT is minted automatically
+- Restarts are supported during beta testing.
+- Restart rules depend on your account type (admin / player) and the current beta settings.
 
-### Level 2 → 4
-- Requires SSN and score milestones
-- No burn required
-
-### Upgrade Process
-1. Select an NFT
-2. Click **Upgrade NFT**
-3. Confirm wallet transaction(s)
-4. Wait for success animation
-5. Re-scan wallet if needed
-
-> 🔒 Only one upgrade can happen per NFT at a time.
+If you are prompted to pay again:
+- Pay **100 SSN** to play again
 
 ---
 
-## 6. Wallet Re-scan
+## 7) Leaderboards & Seasons
 
-If NFTs don’t appear or update:
+- Leaderboards are tracked **per season**
+- Leaderboards are also **per track (per NFT template)**  
+  *(Your score on one track does not carry over to another track)*
+
+Seasons may reset periodically.
+Admins may clear or reset leaderboard data when required.
+
+---
+
+## 8) Wallet Re-scan
+
+If NFTs don’t appear or look outdated:
+
 - Click **Re-scan Wallet**
-- This refreshes NFT data without reloading the page
+
+This refreshes your NFT list and syncs the latest NFT data without needing to reload the page.
 
 ---
 
-## 7. Leaderboards & Seasons
+## 9) NFT Upgrades (Coming Soon)
 
-- Leaderboards are per-track and per-season
-- Scores reset when a new season starts
-- Admins can clear leaderboards manually
+🚧 **Upgrades are currently disabled / not live in this beta build.**
+
+NFT upgrades will return in a future release and will follow strict upgrade rules (no skipping levels).
 
 ---
 
-## 8. Common Issues & Fixes
+## 10) Common Issues & Fixes
 
 ### “Wallet not ready”
-- Make sure you completed login
-- Try refreshing and reconnecting your wallet
+- Make sure login completed successfully
+- Refresh the page and reconnect your wallet
 
-### CPU / NET Errors
-- Wait a few minutes and retry
-- Heavy activity can temporarily rate-limit accounts
+### CPU / NET Errors (WAX)
+This is common during high network load:
+- Wait 1–3 minutes
+- Try again
+- CPU limits can temporarily rate-limit accounts
 
-### NFT Media Not Loading
-- IPFS gateways may be slow or blocked
-- Media will retry automatically using fallbacks
+### NFT Media Not Loading (Audio/Video)
+- IPFS gateways can be slow or blocked
+- The game will attempt fallback loading automatically
+- Try again after a short delay if media fails to start
 
-### Upgrade Failed
-- Ensure you have enough SSN
-- Ensure the NFT is not already upgrading
-- Retry after a short delay if CPU limits were hit
+### Media starts when selecting NFT (should not)
+This should not happen in the current build.
+If it does:
+- Refresh the page
+- Re-select the NFT
+- Report the issue to the team
 
 ---
 
-## 9. Beta Disclaimer
+## 11) Beta Disclaimer
 
-This project is currently in **beta testing**:
-- Features may change
+Rhythm Master is currently in **beta testing**:
+
+- Features may change at any time
 - Bugs may occur
-- Assets are real NFTs – upgrade actions are irreversible
-
-Please report issues or feedback to the development team.
+- On-chain actions (like upgrades when re-enabled) may be **irreversible**
+- Please report any issues, exploits, or feedback to the development team
 
 ---
 
