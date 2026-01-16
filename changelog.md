@@ -1,3 +1,93 @@
+# CHANGELOG.md (16/01/2026)
+All notable changes to **Sublime Sounds – Rhythm Master** will be documented in this file.
+
+This project is currently in active development and public beta testing.
+
+---
+
+## [Beta 2 – Stable Gameplay + Security Lockdown] - 2026-01-16
+
+### ✅ Core Gameplay (Stable)
+- Game runs reliably end-to-end with:
+  - NFT selection
+  - Track loading (image / audio / video)
+  - Start flow
+  - Falling notes + hit detection
+  - Score + combo tracking
+  - End game screen + reset back to idle state
+
+### ✅ Media System Fixes (Audio + Video)
+- Fixed **video replay / 2nd play issues** by hard-resetting video element safely per run.
+- Video now **preloads without autoplay** (does not start playing just by selecting an NFT).
+- Restored stable **audio playback** for audio-only NFTs.
+- Fixed media state cleanup so the next run starts cleanly.
+
+### ✅ Restart System (Working)
+- Restart now works correctly for:
+  - Audio-only NFTs
+  - Video NFTs
+- Game properly ends on media end events (audio-ended / video-ended).
+- Restart no longer causes endless falling notes or stuck gameplay state.
+- Restart respects:
+  - `paidForThisTrack`
+  - `MAX_RESTARTS` (non-admin users)
+  - `ADMINS` bypass rules
+- Added safer restart logic to avoid locking the game loop.
+
+### ✅ Logout Cleanup (Fixed)
+- Logout now performs a full hard stop of gameplay state.
+- Media elements are cleared correctly so no audio/video remains visible/playing after logout.
+
+### ✅ UI Improvements / Quality of Life
+- Login buttons now hide after successful authentication:
+  - Anchor login button hidden after login
+  - WAX login button hidden after login
+- Upgrade dropdown/UI now disables during gameplay (prevents changing upgrade options mid-run).
+- Improved overall “idle → paid → start” flow stability.
+
+### 🎨 Visual Enhancements (Arcade Neon Notes)
+- Notes updated to a more arcade / neon “bloom” style:
+  - Solid colored note bodies
+  - Neon glow around notes
+  - Improved readability + punch
+- SSN notes color adjusted (now blue as requested).
+- Hitline glow added for better visual feedback.
+
+### 🔒 Security Hardening (CRITICAL)
+- Full Supabase security lockdown completed:
+  - **RLS enabled on all tables**
+  - Direct table writes blocked from public clients
+  - Only Edge Functions using Service Role can write where required
+- Confirmed game remains functional after lockdown:
+  - Auth-session still works
+  - Wallet scan still works
+  - NFT loading still works
+  - Score submit still works
+
+---
+
+## 🚧 Known Issues / Not Included Yet
+
+### ❌ Upgrades (Disabled for Beta 2)
+Upgrades are not yet released in Beta 2 because they must be restored exactly to the required ruleset:
+
+- Level 1 → 2 = **4000 SSN** and requires **BURN + MINT**
+- Level 2 → 3 and 3 → 4 = SSN payment (if required) + Atomic mutable update
+- No skipped levels, max level = 4
+- SSN txids must be tracked in `ssn_upgrade_payments` (no reuse)
+
+---
+
+## 🎯 Next Planned Work
+- Restore full NFT upgrade system with strict rule enforcement:
+  - Frontend user-signed burn + mint for Level 1 upgrade
+  - Backend finalizes DB + atomic mutable updates for Level 2+
+- Final pass on upgrade UI/UX once upgrade logic is confirmed stable.
+- Prepare **Final Beta Test** release once upgrades are fully working.
+
+---
+
+
 # Changelog (15/01/2026)
 
 All notable changes to **Sublime Sounds – Rhythm Master** will be documented in this file.
