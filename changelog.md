@@ -1,3 +1,123 @@
+# Changelog  (28/01/2026)
+All notable changes to **Sublime Sounds – Rhythm Master** will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)  
+and this project follows a rolling release model during beta.
+
+---
+
+## [Unreleased]
+### In Progress
+- Mobile MetaMask in-app browser refinements (media start restrictions)
+- Polygon NFT pool expansion
+- Cross-chain UI polish
+
+---
+
+## [v0.9.0] – Polygon Expansion Update
+**Major multi-chain release**
+
+### ✨ Added
+- **Polygon support (full gameplay integration)**
+  - MetaMask login
+  - Polygon wallet session handling
+  - Polygon-specific score submission (`submit-score-polygon`)
+  - Polygon leaderboard entries alongside WAX scores
+- **wSSN rewards on Polygon**
+  - ERC-20 wSSN settlement via `settle-wssn`
+  - One payout per run (restarts forfeit rewards)
+  - Replay protection using `run_id`
+- **Polygon NFT gameplay support**
+  - Bridged NFTs playable in Rhythm Master
+  - Polygon NFT metadata normalization (image / audio)
+  - Chain-aware NFT source handling
+- **Polygon NFT drops**
+  - On-hit NFT reward logic
+  - `transfer-polygon-nft` Edge Function
+  - Polygon NFT pool backed by database (no minting on Polygon)
+- **Chain-aware UI**
+  - “Polygon NFT received” badge
+  - Polygonscan links for NFT receipts
+  - wSSN label replaces SSN on Polygon
+  - Mixed-chain leaderboard support
+
+### 🎮 Gameplay
+- Polygon and WAX now share a unified, stable game engine
+- NFT selection works identically across chains
+- Track media preloads correctly on both chains
+- Audio-only NFTs display artwork during gameplay
+- Video NFTs play video only on start (no image bleed)
+
+### 🧠 Media System (Major Refactor)
+- **Strict media exclusivity enforced**
+  - Audio *or* video, never both
+- **Clear lifecycle separation**
+  - `applyTrackVisuals()` → idle preview only
+  - `startGame()` → playback only
+  - `endGame()` → full cleanup
+- **Idle preview behaviour**
+  - NFT image always shown on selection (audio *and* video NFTs)
+- **Playback behaviour**
+  - Video NFTs hide image and play video
+  - Audio NFTs retain image and play audio
+- Eliminated:
+  - Double media playback
+  - Ghost audio/video on tab switch
+  - Media restarting on visibility change
+  - Autoplay regressions on mobile
+
+### 🏆 Leaderboards
+- Multi-chain competition support
+- WAX and Polygon scores shown together
+- Chain-safe user identifiers
+- Ready for address truncation display on Polygon
+
+### 🔐 Security & Integrity
+- Replay-safe reward settlement
+- One NFT / reward per run enforcement
+- Chain-specific backend paths (no cross-contamination)
+- No silent auto-bridging
+
+---
+
+## [v0.8.x] – Stability & Upgrade Foundations
+### Added
+- Stable NFT upgrade flow (Levels 1–4)
+- SSN upgrade payment tracking
+- Leaderboard season support
+- Track-based leaderboard filtering
+
+### Fixed
+- Leaderboard score mismatches
+- NFT scan performance issues
+- Upgrade path validation bugs
+- Audio/video preload edge cases
+
+---
+
+## [v0.7.x] – Core Gameplay Beta
+### Added
+- Rhythm gameplay engine
+- Combo, multiplier, and reward notes
+- SSN earning through gameplay
+- NFT-based track selection
+- Background image / media support
+- WAX wallet login (Anchor & WCW)
+
+---
+
+## Notes
+- Polygon is intentionally **parallel**, not a mirror of WAX
+- WAX logic remains untouched and stable
+- All new chain features are additive and isolated
+- Rhythm Master remains free-to-play with no required payments
+
+---
+
+**Sublime Sounds – Rhythm Master**  
+Multi-chain rhythm gameplay powered by music NFTs 🎵
+
+
 # CHANGELOG.md (16/01/2026)
 All notable changes to **Sublime Sounds – Rhythm Master** will be documented in this file.
 
